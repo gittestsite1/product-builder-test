@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-4Z9J5G3BTB"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-4Z9J5G3BTB');
+    </script>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>로또 번호 생성기</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+            background: #eef4ef;
+            color: #1f2d24;
+            transition: 0.3s;
+        }
+
+        body.dark {
+            background: #101814;
+            color: #f2f2f2;
+        }
+
+        .mobile-wrap {
+            width: 100%;
+            max-width: 430px;
+            min-height: 100vh;
+            margin: 0 auto;
+            background: #f8faf8;
+            transition: 0.3s;
+        }
+
+        body.dark .mobile-wrap {
+            background: #151f1a;
+        }
+
+        .header {
+            padding: 22px 20px 28px;
+            background: linear-gradient(135deg, #007a3d, #0f9f58);
+            color: white;
+            border-bottom-left-radius: 28px;
+            border-bottom-right-radius: 28px;
+        }
+
+        .header-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .brand {
+            font-size: 14px;
+            opacity: 0.9;
+            font-weight: 600;
+        }
+
+        .toggle-btn {
+            border: none;
+            border-radius: 30px;
+            padding: 8px 13px;
+            font-size: 13px;
+            font-weight: bold;
+            background: #ffcc00;
+            color: #19351f;
+            cursor: pointer;
+        }
+
+        .title {
+            margin-top: 28px;
+        }
+
+        .title h1 {
+            margin: 0;
+            font-size: 28px;
+            line-height: 1.3;
+        }
+
+        .title p {
+            margin: 8px 0 0;
+            font-size: 14px;
+            opacity: 0.9;
+        }
+
+        .content {
+            padding: 22px 18px 40px;
+        }
+
+        .card {
+            background: white;
+            border-radius: 22px;
+            padding: 20px;
+            margin-bottom: 18px;
+            box-shadow: 0 8px 24px rgba(0, 80, 40, 0.08);
+            transition: 0.3s;
+        }
+
+        body.dark .card {
+            background: #202b25;
+            box-shadow: none;
+        }
+
+        .section-title {
+            font-size: 16px;
+            font-weight: 800;
+            margin-bottom: 12px;
+            color: #063f22;
+        }
+
+        body.dark .section-title {
+            color: #f6d74a;
+        }
+
+        .game-buttons {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 8px;
+        }
+
+        .game-btn {
+            border: 1px solid #d9e5dc;
+            background: #f4f8f5;
+            color: #1f3b2b;
+            border-radius: 14px;
+            padding: 13px 0;
+            font-size: 15px;
+            font-weight: 800;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .game-btn.active {
+            background: #007a3d;
+            color: white;
+            border-color: #007a3d;
+            box-shadow: 0 6px 14px rgba(0, 122, 61, 0.25);
+        }
+
+        body.dark .game-btn {
+            background: #17231d;
+            color: #e8e8e8;
+            border-color: #35483d;
+        }
+
+        body.dark .game-btn.active {
+            background: #ffcc00;
+            color: #122016;
+            border-color: #ffcc00;
+        }
+
+        input {
+            width: 100%;
+            border: 1px solid #d8e2dc;
+            border-radius: 16px;
+            padding: 15px;
+            font-size: 16px;
+            outline: none;
+            background: #f9fbfa;
+            color: #1d2b22;
+        }
+
+        input:focus {
+            border-color: #007a3d;
+        }
+
+        body.dark input {
+            background: #17231d;
+            color: white;
+            border-color: #3a4c41;
+        }
+
+        .hint {
+            margin-top: 8px;
+            font-size: 13px;
+            color: #6d7c72;
+            line-height: 1.5;
+        }
+
+        body.dark .hint {
+            color: #b5beb8;
+        }
+
+        .generate-btn {
+            width: 100%;
+            border: none;
+            border-radius: 18px;
+            padding: 17px;
+            font-size: 17px;
+            font-weight: 900;
+            background: linear-gradient(135deg, #007a3d, #00a65a);
+            color: white;
+            cursor: pointer;
+            box-shadow: 0 10px 20px rgba(0, 122, 61, 0.25);
+        }
+
+        body.dark .generate-btn {
+            background: linear-gradient(135deg, #ffcc00, #f6df64);
+            color: #102116;
+            box-shadow: none;
+        }
+
+        .message {
+            margin-top: 16px;
+            font-size: 14px;
+            font-weight: bold;
+            color: #007a3d;
+        }
+
+        .warning {
+            color: #e74c3c;
+        }
+
+        .result {
+            margin-top: 20px;
+        }
+
+        .result-title {
+            font-size: 18px;
+            font-weight: 900;
+            margin-bottom: 12px;
+        }
+
+        .game-result {
+            background: white;
+            border-radius: 20px;
+            padding: 16px;
+            margin-bottom: 12px;
+            box-shadow: 0 6px 18px rgba(0, 80, 40, 0.08);
+        }
+
+        body.dark .game-result {
+            background: #202b25;
+            box-shadow: none;
+        }
+
+        .game-label {
+            font-size: 14px;
+            font-weight: 800;
+            color: #007a3d;
+            margin-bottom: 10px;
+        }
+
+        body.dark .game-label {
+            color: #ffcc00;
+        }
+
+        .numbers {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 7px;
+        }
+
+        .number {
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 15px;
+            font-weight: 900;
+            color: white;
+        }
+
+        .num-1 {
+            background: #f2c94c;
+            color: #1d1d1d;
+        }
+
+        .num-10 {
+            background: #2f80ed;
+        }
+
+        .num-20 {
+            background: #eb5757;
+        }
+
+        .num-30 {
+            background: #828282;
+        }
+
+        .num-40 {
+            background: #27ae60;
+        }
+
+        .bottom-note {
+            text-align: center;
+            font-size: 12px;
+            color: #87958c;
+            margin-top: 24px;
+        }
+
+        body.dark .bottom-note {
+            color: #9aa89f;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="mobile-wrap">
+        <header class="header">
+            <div class="header-top">
+                <div class="brand">LUCKY NUMBER</div>
+                <button class="toggle-btn" onclick="toggleDarkMode()">다크모드</button>
+            </div>
+
+            <div class="title">
+                <h1>오늘의<br />로또 번호 생성기</h1>
+                <p>원하는 번호를 포함해서 최대 5게임까지 추천받아보세요.</p>
+            </div>
+        </header>
+
+        <main class="content">
+            <section class="card">
+                <div class="section-title">생성할 게임 수 선택</div>
+
+                <div class="game-buttons">
+                    <button class="game-btn active" onclick="selectGameCount(1, this)">1</button>
+                    <button class="game-btn" onclick="selectGameCount(2, this)">2</button>
+                    <button class="game-btn" onclick="selectGameCount(3, this)">3</button>
+                    <button class="game-btn" onclick="selectGameCount(4, this)">4</button>
+                    <button class="game-btn" onclick="selectGameCount(5, this)">5</button>
+                </div>
+
+                <div class="hint">최대 5게임까지 생성할 수 있습니다.</div>
+            </section>
+
+            <section class="card">
+                <div class="section-title">원하는 번호 입력</div>
+
+                <input type="text" id="fixedNumbers" placeholder="예: 7, 18, 33" />
+
+                <div class="hint">
+                    원하는 번호는 최대 3개까지 입력할 수 있습니다. 입력하지 않아도 자동 생성됩니다.
+                </div>
+            </section>
+
+            <button class="generate-btn" onclick="createLotto()">번호 생성하기</button>
+
+            <div id="message" class="message"></div>
+
+            <section id="result" class="result"></section>
+
+            <div class="bottom-note">
+                번호는 1부터 45까지 중복 없이 생성됩니다.
+            </div>
+        </main>
+    </div>
+
+    <script>
+        let selectedGameCount = 1;
+
+        function toggleDarkMode() {
+            document.body.classList.toggle("dark");
+
+            const button = document.querySelector(".toggle-btn");
+
+            if (document.body.classList.contains("dark")) {
+                button.innerText = "라이트모드";
+            } else {
+                button.innerText = "다크모드";
+            }
+        }
+
+        function selectGameCount(count, button) {
+            selectedGameCount = count;
+
+            const buttons = document.querySelectorAll(".game-btn");
+
+            buttons.forEach(function (btn) {
+                btn.classList.remove("active");
+            });
+
+            button.classList.add("active");
+        }
+
+        function createLotto() {
+            const fixedNumbersInput = document.getElementById("fixedNumbers");
+            const message = document.getElementById("message");
+            const result = document.getElementById("result");
+
+            const fixedNumbersText = fixedNumbersInput.value.trim();
+
+            message.innerHTML = "";
+            message.className = "message";
+            result.innerHTML = "";
+
+            const fixedNumbers = getFixedNumbers(fixedNumbersText);
+
+            if (fixedNumbers === null) {
+                message.innerHTML = "원하는 번호는 1부터 45 사이의 숫자로 최대 3개까지 입력해주세요.";
+                message.classList.add("warning");
+                return;
+            }
+
+            message.innerHTML = `총 ${selectedGameCount}게임의 번호를 생성했습니다.`;
+
+            const title = document.createElement("div");
+            title.className = "result-title";
+            title.innerText = "추천 번호";
+            result.appendChild(title);
+
+            for (let i = 1; i <= selectedGameCount; i++) {
+                const lottoNumbers = generateLottoNumbers(fixedNumbers);
+
+                const gameDiv = document.createElement("div");
+                gameDiv.className = "game-result";
+
+                const label = document.createElement("div");
+                label.className = "game-label";
+                label.innerText = `${i}게임`;
+
+                const numbersDiv = document.createElement("div");
+                numbersDiv.className = "numbers";
+
+                lottoNumbers.forEach(function (number) {
+                    const numberSpan = document.createElement("span");
+                    numberSpan.className = "number " + getNumberColorClass(number);
+                    numberSpan.innerText = number;
+                    numbersDiv.appendChild(numberSpan);
+                });
+
+                gameDiv.appendChild(label);
+                gameDiv.appendChild(numbersDiv);
+                result.appendChild(gameDiv);
+            }
+        }
+
+        function getFixedNumbers(text) {
+            if (text === "") {
+                return [];
+            }
+
+            const numbers = text
+                .split(",")
+                .map(function (item) {
+                    return Number(item.trim());
+                });
+
+            const uniqueNumbers = [...new Set(numbers)];
+
+            if (numbers.length !== uniqueNumbers.length) {
+                return null;
+            }
+
+            if (uniqueNumbers.length > 3) {
+                return null;
+            }
+
+            for (let i = 0; i < uniqueNumbers.length; i++) {
+                if (
+                    isNaN(uniqueNumbers[i]) ||
+                    uniqueNumbers[i] < 1 ||
+                    uniqueNumbers[i] > 45 ||
+                    !Number.isInteger(uniqueNumbers[i])
+                ) {
+                    return null;
+                }
+            }
+
+            return uniqueNumbers;
+        }
+
+        function generateLottoNumbers(fixedNumbers) {
+            const numbers = [...fixedNumbers];
+
+            while (numbers.length < 6) {
+                const randomNumber = Math.floor(Math.random() * 45) + 1;
+
+                if (!numbers.includes(randomNumber)) {
+                    numbers.push(randomNumber);
+                }
+            }
+
+            numbers.sort(function (a, b) {
+                return a - b;
+            });
+
+            return numbers;
+        }
+
+        function getNumberColorClass(number) {
+            if (number >= 1 && number <= 9) {
+                return "num-1";
+            } else if (number >= 10 && number <= 19) {
+                return "num-10";
+            } else if (number >= 20 && number <= 29) {
+                return "num-20";
+            } else if (number >= 30 && number <= 39) {
+                return "num-30";
+            } else {
+                return "num-40";
+            }
+        }
+    </script>
+</body>
+
+</html>
