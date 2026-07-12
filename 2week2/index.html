@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-4Z9J5G3BTB"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-4Z9J5G3BTB');
+</script>
+<meta charset="utf-8"/>
+<link rel="icon" type="image/svg+xml" href="favicon.svg"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>StyleAI | Data Input</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600&amp;family=Bodoni+Moda:wght@600;700;800&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+        }
+        .step-transition { transition: width 0.6s cubic-bezier(0.65, 0, 0.35, 1); }
+        input[type="number"]::-webkit-inner-spin-button,
+        input[type="number"]::-webkit-outer-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+        .gold-shimmer {
+            background: linear-gradient(45deg, #f2ca50 0%, #ffe088 50%, #f2ca50 100%);
+            background-size: 200% auto;
+            animation: shimmer 3s linear infinite;
+        }
+        @keyframes shimmer {
+            to { background-position: 200% center; }
+        }
+        body {
+            min-height: max(884px, 100dvh);
+            background-color: #131313;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "secondary-fixed": "#e2e2e2",
+                        "surface-container-highest": "#353535",
+                        "on-surface": "#e5e2e1",
+                        "tertiary-fixed": "#e2e2e2",
+                        "surface-tint": "#e9c349",
+                        "on-tertiary": "#2f3131",
+                        "tertiary": "#cecece",
+                        "primary-fixed-dim": "#e9c349",
+                        "on-secondary": "#303030",
+                        "on-primary-fixed-variant": "#574500",
+                        "surface-container-lowest": "#0e0e0e",
+                        "on-tertiary-fixed-variant": "#454747",
+                        "tertiary-fixed-dim": "#c6c6c7",
+                        "on-primary-container": "#554300",
+                        "surface-variant": "#353535",
+                        "error-container": "#93000a",
+                        "on-primary-fixed": "#241a00",
+                        "on-error-container": "#ffdad6",
+                        "inverse-primary": "#735c00",
+                        "surface-container-high": "#2a2a2a",
+                        "secondary-fixed-dim": "#c6c6c6",
+                        "inverse-on-surface": "#313030",
+                        "surface-container": "#20201f",
+                        "outline-variant": "#4d4635",
+                        "primary-container": "#d4af37",
+                        "surface": "#131313",
+                        "primary-fixed": "#ffe088",
+                        "surface-container-low": "#1c1b1b",
+                        "surface-dim": "#131313",
+                        "on-error": "#690005",
+                        "secondary-container": "#474747",
+                        "surface-bright": "#393939",
+                        "on-tertiary-fixed": "#1a1c1c",
+                        "tertiary-container": "#b2b3b3",
+                        "on-secondary-fixed": "#1b1b1b",
+                        "background": "#131313",
+                        "secondary": "#c6c6c6",
+                        "error": "#ffb4ab",
+                        "on-primary": "#3c2f00",
+                        "inverse-surface": "#e5e2e1",
+                        "on-tertiary-container": "#434546",
+                        "on-background": "#e5e2e1",
+                        "on-secondary-container": "#b5b5b5",
+                        "outline": "#99907c",
+                        "on-secondary-fixed-variant": "#474747",
+                        "primary": "#f2ca50",
+                        "on-surface-variant": "#d0c5af"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0px",
+                        "lg": "0px",
+                        "xl": "0px",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "gutter": "24px",
+                        "margin-desktop": "80px",
+                        "stack-lg": "48px",
+                        "stack-sm": "8px",
+                        "stack-md": "16px",
+                        "margin-mobile": "20px"
+                    },
+                    "fontFamily": {
+                        "body-lg": ["Hanken Grotesk"],
+                        "body-md": ["Hanken Grotesk"],
+                        "headline-lg-mobile": ["Bodoni Moda"],
+                        "headline-lg": ["Bodoni Moda"],
+                        "display-lg": ["Bodoni Moda"],
+                        "label-lg": ["Hanken Grotesk"],
+                        "headline-md": ["Bodoni Moda"],
+                        "label-sm": ["Hanken Grotesk"]
+                    },
+                    "fontSize": {
+                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "headline-lg-mobile": ["32px", {"lineHeight": "40px", "fontWeight": "700"}],
+                        "headline-lg": ["48px", {"lineHeight": "56px", "fontWeight": "700"}],
+                        "display-lg": ["72px", {"lineHeight": "80px", "letterSpacing": "-0.02em", "fontWeight": "800"}],
+                        "label-lg": ["14px", {"lineHeight": "20px", "letterSpacing": "0.1em", "fontWeight": "600"}],
+                        "headline-md": ["32px", {"lineHeight": "40px", "fontWeight": "600"}],
+                        "label-sm": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "500"}]
+                    }
+                },
+            },
+        }
+    </script>
+</head>
+<body class="bg-background text-on-surface font-body-md min-h-screen flex flex-col">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-surface border-b border-outline-variant/30">
+<div class="flex items-center justify-between px-margin-mobile h-16 w-full max-w-7xl mx-auto">
+<button class="hover:opacity-80 transition-opacity active:scale-95">
+<span class="material-symbols-outlined text-primary">menu</span>
+</button>
+<h1 class="font-headline-md text-xl font-bold tracking-[0.2em] text-primary uppercase">StyleAI</h1>
+<button class="hover:opacity-80 transition-opacity active:scale-95">
+<span class="material-symbols-outlined text-primary">notifications</span>
+</button>
+</div>
+</header>
+<!-- Main Content -->
+<main class="flex-grow pt-24 pb-32 px-margin-mobile max-w-2xl mx-auto w-full">
+<!-- Progress Bar Section -->
+<div class="mb-12">
+<div class="flex justify-between items-end mb-4">
+<span class="font-label-lg text-label-sm uppercase tracking-[0.2em] text-on-surface-variant">Step 1 of 2</span>
+<span class="font-label-lg text-label-sm uppercase tracking-[0.2em] text-primary">Personal Profile</span>
+</div>
+<div class="w-full h-[1px] bg-surface-container-highest">
+<div class="bg-primary h-full step-transition w-1/2 shadow-[0_0_10px_rgba(242,202,80,0.5)]"></div>
+</div>
+</div>
+<!-- Header -->
+<div class="mb-10 text-center">
+<h2 class="font-display-lg text-4xl text-primary mb-4 italic">The Style Identity</h2>
+<p class="text-on-surface-variant font-body-lg max-w-md mx-auto leading-relaxed">Precision analytics for the discerning individual. Curate your foundation for a bespoke consultation.</p>
+</div>
+<!-- Form Canvas -->
+<div class="space-y-12">
+<!-- Upload Photo Zone -->
+<section>
+<label class="block font-label-lg text-label-sm mb-4 uppercase tracking-[0.2em] text-primary/80">Reference Photo</label>
+<div class="group relative cursor-pointer overflow-hidden border border-solid border-primary/50 hover:border-primary transition-all duration-500 h-96 flex flex-col items-center justify-center" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('model2.png'); background-size: cover; background-position: center;">
+<input class="absolute inset-0 opacity-0 cursor-pointer z-10" id="photo-upload" type="file"/>
+<div class="text-center transition-all duration-700 opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0">
+<span class="material-symbols-outlined text-5xl mb-6 text-primary/80 group-hover:text-primary transition-colors">add_a_photo</span>
+<p class="font-headline-md text-2xl text-on-surface tracking-wide">Change Portrait</p>
+<p class="text-label-sm font-label-lg mt-3 opacity-60 uppercase tracking-[0.15em]">RAW, JPEG OR PNG</p>
+</div>
+<!-- Aesthetic Overlay -->
+<div class="absolute inset-0 pointer-events-none border-[1px] border-primary/10 group-hover:border-primary/30 transition-all duration-500 m-4"></div>
+</div>
+<p class="mt-4 text-label-sm text-on-surface-variant/60 leading-relaxed italic">
+                    * For definitive results, please provide a high-resolution full-body photo with studio or neutral lighting.
+                </p>
+</section>
+<!-- Physical Attributes -->
+<section class="grid grid-cols-2 gap-gutter">
+<div class="space-y-3">
+<label class="block font-label-lg text-label-sm uppercase tracking-[0.2em] text-primary/80" for="height">Height (cm)</label>
+<input class="w-full border-b border-outline-variant focus:border-primary focus:ring-0 bg-transparent py-4 text-2xl transition-all duration-300 outline-none font-headline-md text-on-surface placeholder:text-surface-container-highest" id="height" placeholder="175" type="number"/>
+</div>
+<div class="space-y-3">
+<label class="block font-label-lg text-label-sm uppercase tracking-[0.2em] text-primary/80" for="weight">Weight (kg)</label>
+<input class="w-full border-b border-outline-variant focus:border-primary focus:ring-0 bg-transparent py-4 text-2xl transition-all duration-300 outline-none font-headline-md text-on-surface placeholder:text-surface-container-highest" id="weight" placeholder="70" type="number"/>
+</div>
+</section>
+<!-- Gender Selection -->
+<section>
+<label class="block font-label-lg text-label-sm mb-6 uppercase tracking-[0.2em] text-primary/80">Identity</label>
+<div class="flex flex-col gap-3">
+<label class="relative cursor-pointer w-full group">
+<input class="peer sr-only" name="gender" type="radio" value="male"/>
+<div class="px-8 py-5 border border-outline-variant/30 peer-checked:border-primary peer-checked:bg-primary/5 transition-all duration-300 flex justify-between items-center group-hover:border-primary/60">
+<span class="text-label-lg font-label-lg uppercase tracking-[0.2em] group-hover:text-primary transition-colors">Male</span>
+<div class="w-2 h-2 rounded-full border border-primary group-hover:scale-125 transition-transform peer-checked:bg-primary"></div>
+</div>
+</label>
+<label class="relative cursor-pointer w-full group">
+<input checked="" class="peer sr-only" name="gender" type="radio" value="female"/>
+<div class="px-8 py-5 border border-outline-variant/30 peer-checked:border-primary peer-checked:bg-primary/5 transition-all duration-300 flex justify-between items-center group-hover:border-primary/60">
+<span class="text-label-lg font-label-lg uppercase tracking-[0.2em] group-hover:text-primary transition-colors text-primary">Female</span>
+<div class="w-2 h-2 rounded-full border border-primary bg-primary"></div>
+</div>
+</label>
+<label class="relative cursor-pointer w-full group">
+<input class="peer sr-only" name="gender" type="radio" value="non-binary"/>
+<div class="px-8 py-5 border border-outline-variant/30 peer-checked:border-primary peer-checked:bg-primary/5 transition-all duration-300 flex justify-between items-center group-hover:border-primary/60">
+<span class="text-label-lg font-label-lg uppercase tracking-[0.2em] group-hover:text-primary transition-colors">Non-binary</span>
+<div class="w-2 h-2 rounded-full border border-primary group-hover:scale-125 transition-transform"></div>
+</div>
+</label>
+</div>
+</section>
+<!-- Primary Action & Share -->
+<section class="pt-8 flex flex-col sm:flex-row items-center gap-4">
+<button class="w-full sm:flex-grow gold-shimmer text-on-primary py-6 font-label-lg text-label-lg uppercase tracking-[0.3em] font-bold hover:shadow-[0_0_20px_rgba(242,202,80,0.3)] active:scale-[0.98] transition-all flex items-center justify-center group" onclick="handleAnalysis()">
+                    Analyze My Style
+                    <span class="material-symbols-outlined ml-4 group-hover:translate-x-2 transition-transform">arrow_right_alt</span>
+</button>
+<!-- AddToAny BEGIN -->
+<div class="a2a_kit a2a_kit_size_32 a2a_default_style flex items-center gap-2 bg-surface-container-low border border-outline-variant/30 px-4 py-3">
+<a class="a2a_dd" href="https://www.addtoany.com/share"></a>
+<a class="a2a_button_telegram"></a>
+<a class="a2a_button_kakao"></a>
+<a class="a2a_button_google_gmail"></a>
+</div>
+<script defer src="https://static.addtoany.com/menu/page.js"></script>
+<!-- AddToAny END -->
+</section>
+</div>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 w-full z-50 bg-surface border-t border-outline-variant/30">
+<div class="flex justify-around items-center h-20 px-margin-mobile pb-safe w-full max-w-7xl mx-auto">
+<button class="flex flex-col items-center justify-center text-on-surface-variant/60 hover:text-primary transition-all active:scale-90">
+<span class="material-symbols-outlined mb-1">home</span>
+<span class="font-label-lg text-[10px] uppercase tracking-widest">Home</span>
+</button>
+<button class="flex flex-col items-center justify-center text-primary font-bold active:scale-90">
+<span class="material-symbols-outlined mb-1" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+<span class="font-label-lg text-[10px] uppercase tracking-widest">Style Lab</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant/60 hover:text-primary transition-all active:scale-90">
+<span class="material-symbols-outlined mb-1">person</span>
+<span class="font-label-lg text-[10px] uppercase tracking-widest">Profile</span>
+</button>
+</div>
+</nav>
+<script>
+        function handleAnalysis() {
+            const btn = event.currentTarget;
+            const originalContent = btn.innerHTML;
+            btn.innerHTML = `
+                <span class="animate-spin mr-3">
+                    <span class="material-symbols-outlined">refresh</span>
+                </span>
+                <span class="tracking-[0.2em]">Crafting Profile...</span>
+            `;
+            btn.disabled = true;
+            
+            // Artificial delay to simulate "AI Analysis"
+            setTimeout(() => {
+                alert("Styling profile saved. Proceeding to Preference Mapping.");
+                window.location.reload();
+            }, 1500);
+        }
+
+        // Image preview logic
+        const input = document.getElementById('photo-upload');
+        const uploadZone = input.parentElement;
+
+        input.addEventListener('change', function(e) {
+            if (this.files && this.files[0]) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    uploadZone.style.backgroundImage = `linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(${e.target.result})`;
+                    uploadZone.style.backgroundSize = 'cover';
+                    uploadZone.style.backgroundPosition = 'center';
+                    uploadZone.querySelector('div').style.opacity = '0';
+                    uploadZone.classList.remove('border-dashed');
+                    uploadZone.classList.add('border-solid', 'border-primary');
+                }
+                reader.readAsDataURL(this.files[0]);
+            }
+        });
+    </script>
+</body></html>
